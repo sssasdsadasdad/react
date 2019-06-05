@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {Link, HashRouter as Router} from 'react-router-dom'
 import axios from 'axios'
 import { createStore } from 'redux';
-
-export default class Login extends Component {
+import home from './home'
+export default class layer extends Component {
   constructor(props) {
     super(props);
-    this.text  = 'Login'
+    this.text  = 'layer'
 //  setInterval(()=> {
 //  	this.setState({
 //  		time: ++ this.time 
@@ -27,11 +27,13 @@ export default class Login extends Component {
   }
   render() {
     return (
-    	<Router>
-	      <section className="related-search-container">
-	        <h1 onClick = {this.gos.bind(this)} className="related-search-title">login</h1>
-	      </section>
-    	</Router>
+//  	<Router>
+      <section className="related-search-container">
+        <h1 onClick={this.gos.bind(this)} className="related-search-title">{this.text}</h1>
+        		
+      </section>
+//  	</Router>
+      
     );
   }
 }

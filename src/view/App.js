@@ -1,37 +1,26 @@
-import React, {Component} from 'react'
-import {HashRouter as Router, Route, Redirect, hashHistory} from 'react-router-dom'
-import {IndexRoute} from 'react-router'
-import Login from './login'
-import Home from './home'
-import Register from './register'
-import {Button} from 'antd'
-import 'antd/dist/antd.css';
-
-class app extends Component {
-  render() {
-  	let isLogin = true;
-  	if(isLogin) {
-	    return (
-	    	<div>
-		    	<Router>
-		    	<div>
-		    		<Route exact path="/"  component={Login}></Route>
-		    		<Route path="/home"  component={Home}></Route>
-	    		</div>
-		    	</Router>
-	    	</div>
-    	)
-  	} else {
-  		return (<div>
-		    	<Router>
-			    	<div>
-			    		<Route path="/register"  component={Register}></Route>
-			    		<Redirect to="register"></Redirect>
-		    		</div>
-		    	</Router>
-	    	</div>)
-  		
-  	}
-  }
+import React, { Component } from 'react';
+import {Link,Route,BrowserRouter as Router} from 'react-router-dom' 
+import Item from './Item'
+class App extends Component {
+	constructor(props){
+		super(props)
+		this.state   = {
+			inp: {i: '煞笔'}
+		}
+	}
+	parent(v){
+		this.setState({
+			inp: v
+		})
+	}
+	render(){
+		return (
+			<div>
+				{this.state.inp}
+				<Item {...this.state.inp} parent={this.parent.bind(this)} />
+			</div>
+		)
+	}
 }
-export default app
+
+export default App;
